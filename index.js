@@ -82,13 +82,25 @@ function humanChooseScissors(compareWithScissors) {
 function playRound(humanChoice, computerChoice) {
     console.log("Your Choice: " + humanChoice);
     console.log("Computer's Choice: " + computerChoice);
-    if (humanChoice === "rock") {
-        humanChooseRock(computerChoice);
-    } else if (humanChoice === "paper") {
-        humanChoosePaper(computerChoice);
-    } else {
-        humanChooseScissors(computerChoice);
+    switch (humanChoice) {
+        case "rock":
+            humanChooseRock(computerChoice);
+            break;
+        case "paper":
+            humanChoosePaper(computerChoice);
+            break;
+        case "scissors":
+            humanChooseScissors(computerChoice);
+            break;
+
     }
+    // if (humanChoice === "rock") {
+    //     humanChooseRock(computerChoice);
+    // } else if (humanChoice === "paper") {
+    //     humanChoosePaper(computerChoice);
+    // } else {
+    //     humanChooseScissors(computerChoice);
+    // }
 }
 
 function playGame() {
