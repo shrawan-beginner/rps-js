@@ -29,10 +29,63 @@
 let humanScore = 0;
 let computerScore = 0;
 
-let getHumanChoice = prompt('Enter a choice between: Rock, Paper, and Scissors: ');
+function getHumanChoice() {
+    let humanChose = prompt('Enter a choice between: Rock, Paper, and Scissors: ');
+    return humanChose.toLowerCase();
+}
 
 function getComputerChoice() {
     let options = ['rock', 'paper', 'scissors'];
     let randomChoice = Math.floor(Math.random() * 3);
     return options[randomChoice];
 }
+
+function humanChooseRock(compareWithRock) {
+    if (compareWithRock === "paper") {
+        console.log('You Lose!!! Paper beats Rock.');
+        computerScore++;
+    } else if (compareWithRock === "scissors") {
+        console.log('You Win!!! Rock beats Scissors.');
+        humanScore++;
+    } else {
+        console.log('Both selected Rock. Its a tie');
+    }
+}
+
+function humanChoosePaper(compareWithPaper) {
+    if (compareWithPaper === "scissors") {
+        console.log('You Lose!!! Scissors beats Paper.');
+        computerScore++;
+    } else if (compareWithPaper === "rock") {
+        console.log('You Win!!! Paper beats Rock.');
+        humanScore++;
+    } else {
+        console.log('Both selected Paper. Its a tie');
+    }
+}
+
+function humanChooseScissors(compareWithScissors) {
+    if (compareWithScissors === "rock") {
+        console.log('You Lose!!! Rock beats Scissors.');
+        computerScore++;
+    } else if (compareWithScissors === "paper") {
+        console.log('You Win!!! Scissors beats Paper.');
+        humanScore++;
+    } else {
+        console.log('Both selected Scissors. Its a tie');
+    }
+}
+
+function playRound(humanChoice, computerChoice) {
+    console.log("Your Choice: " + humanChoice);
+    console.log("Computer's Choice: " + computerChoice);
+    if (humanChoice === "rock") {
+        humanChooseRock(computerChoice);
+    } else if (humanChoice === "paper") {
+        humanChoosePaper(computerChoice);
+    } else {
+        humanChooseScissors(computerChoice);
+    }
+}
+
+playRound(getHumanChoice(), getComputerChoice());
