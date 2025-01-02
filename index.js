@@ -22,7 +22,7 @@
     c. Create some variables to show players scores: humanScore and computerScore.
     d. If computer has rock and player has paper, then player wins, else if computer has rock and player also has rock, then its a draw. Else if computer has rock and player has scissors, then computer wins.
     e. Increment the score for humanScores and computerScores depeding on the condition from step d.
-    e. Repeat step d and e for 5 more times to track the scores.
+    e. Repeat(Loop through)) step d and e for 5 more times to track the scores.
     f. Compare the score and declare a winner.
 */
 
@@ -49,6 +49,7 @@ function humanChooseRock(compareWithRock) {
         humanScore++;
     } else {
         console.log('Both selected Rock. Its a tie');
+        humanScore++, computerScore++;
     }
 }
 
@@ -61,6 +62,7 @@ function humanChoosePaper(compareWithPaper) {
         humanScore++;
     } else {
         console.log('Both selected Paper. Its a tie');
+        humanScore++, computerScore++;
     }
 }
 
@@ -73,6 +75,7 @@ function humanChooseScissors(compareWithScissors) {
         humanScore++;
     } else {
         console.log('Both selected Scissors. Its a tie');
+        humanScore++, computerScore++;
     }
 }
 
@@ -88,4 +91,25 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-playRound(getHumanChoice(), getComputerChoice());
+function playGame() {
+    let roundPlayed = 1;
+    while (roundPlayed < 6) {
+        console.log('Round: ' + roundPlayed);
+        playRound(getHumanChoice(), getComputerChoice());
+        console.log('');
+        console.log("Human's Score: " + humanScore);
+        console.log("Computer's Score: " + computerScore);
+        console.log('')
+        roundPlayed++;
+    }
+    if (humanScore > computerScore) {
+        console.log('Congratulations!!!You scored higher than computer.')
+    } else if (humanScore < computerScore) {
+        console.log('Too bad!!! You scored lower than the computer.')
+    } else {
+        console.log('Its a tie. You both have same score.')
+    }
+}
+
+playGame();
+// playRound(getHumanChoice(), getComputerChoice());
